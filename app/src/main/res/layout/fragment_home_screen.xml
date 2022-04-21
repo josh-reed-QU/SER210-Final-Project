@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeScreenFragment">
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".SplashScreenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridLayout
+        android:id="@+id/homeScreenGrid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Screen Fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_column="2" >
 
-</FrameLayout>
+        <Button
+            android:id="@+id/allEventsButton"
+            android:layout_height="100dp"
+            android:layout_width="160dp"
+            android:text="All"
+            android:textSize="30dp" />
+
+    </GridLayout>
+
+</LinearLayout>

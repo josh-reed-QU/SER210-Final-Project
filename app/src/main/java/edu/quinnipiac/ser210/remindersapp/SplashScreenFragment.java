@@ -31,10 +31,16 @@ public class SplashScreenFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         //TODO: add a button to splash screen, implement onClickListener Here, will always have the all category
+        view.findViewById(R.id.splashScreenButton).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         //TODO: navigate to next screen using navController
+        switch(view.getId()) {
+            case R.id.splashScreenButton:
+                navController.navigate(R.id.action_splashScreen_to_homeScreenFragment);
+                break;
+        }
     }
 }

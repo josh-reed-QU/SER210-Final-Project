@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,16 +10,36 @@
     tools:context=".SplashScreenFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/appTitle"
-        android:gravity="center"
-        android:textSize="48dp"/>
-
-    <Button
+        android:id="@+id/splashScreenText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/appTitle"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="48dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <ImageView
+        android:id="@+id/splashScreenImage"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/images" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="140dp" />
+
+    <Button
+        android:id="@+id/splashScreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/splashScreenButtonText"
-        android:textSize="28dp"/>
+        android:textSize="36dp"/>
 
 </LinearLayout>
