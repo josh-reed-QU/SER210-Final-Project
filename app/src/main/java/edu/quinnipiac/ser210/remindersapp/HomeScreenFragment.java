@@ -32,6 +32,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         navController = Navigation.findNavController(view);
         //TODO: get buttons from screen, implement onClickListener here
         view.findViewById(R.id.allEventsButton).setOnClickListener(this);
+        view.findViewById(R.id.homeScreenFAB).setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +42,9 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.allEventsButton:
                 //TODO: only goes to screen now, does not change events displayed
                 navController.navigate(R.id.action_homeScreenFragment_to_eventListFragment);
+                break;
+            case R.id.homeScreenFAB:
+                navController.navigate(R.id.action_homeScreenFragment_to_addEventFragment);
                 break;
         }
     }

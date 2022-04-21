@@ -18,39 +18,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Name:"
-        android:textSize="30dp" />
+        android:textSize="28dp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="100dp" />
 
     <TextView
         android:id="@+id/eventDateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Date:"
-        android:textSize="30dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
-
-    <TextView
-        android:id="@+id/eventTimeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Event Time:"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="80dp" />
 
     <TextView
+        android:id="@+id/eventTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Time:"
+        android:textSize="20dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <TextView
         android:id="@+id/eventDescriptionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Description:"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
 </LinearLayout>

@@ -32,10 +32,16 @@ public class EventListFragment extends Fragment implements View.OnClickListener 
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         //TODO: add a button to splash screen, implement onClickListener Here, will always have the all category
+        view.findViewById(R.id.eventListFAB).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         //TODO: navigate to next screen using navController
+        switch(view.getId()) {
+            case R.id.eventListFAB:
+                navController.navigate(R.id.action_eventListFragment_to_addEventFragment);
+                break;
+        }
     }
 }
