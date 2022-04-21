@@ -9,22 +9,12 @@
     android:padding="20dp"
     tools:context=".SplashScreenFragment">
 
-    <GridLayout
-        android:id="@+id/homeScreenGrid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+    <Button
+        android:id="@+id/allEventsButton"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_column="2" >
-
-        <Button
-            android:id="@+id/allEventsButton"
-            android:layout_height="100dp"
-            android:layout_width="160dp"
-            android:text="All"
-            android:textSize="30dp" />
-
-    </GridLayout>
+        android:layout_marginTop="40dp"
+        android:text="All" />
 
 </LinearLayout>

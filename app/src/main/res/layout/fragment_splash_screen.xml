@@ -25,14 +25,14 @@
     <ImageView
         android:id="@+id/splashScreenImage"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:layout_gravity="center"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/images" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="140dp" />
+        android:layout_height="120dp" />
 
     <Button
         android:id="@+id/splashScreenButton"
