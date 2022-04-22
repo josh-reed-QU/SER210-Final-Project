@@ -10,6 +10,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -90,6 +91,32 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_NAME, null, values);
         db.close();
+    }
+
+    public ArrayList<EventModal> readEvents() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursorEvents = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        // on below line we are creating a new array list.
+        ArrayList<EventModal> courseModalArrayList = new ArrayList<>();
+
+        // moving our cursor to first position.
+        if (cursorEvents.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+                courseModalArrayList.add(new EventModal(cursorEvents.getString(1),
+                        cursorEvents.getString(2),
+                        cursorEvents.getString(3),
+                        cursorEvents.getString(4),
+                        cursorEvents.getString(5)));
+            } while (cursorEvents.moveToNext());
+            // moving our cursor to next.
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursorEvents.close();
+        return courseModalArrayList;
     }
 
     @Override

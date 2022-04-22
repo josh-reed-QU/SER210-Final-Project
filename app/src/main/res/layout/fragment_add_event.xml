@@ -86,7 +86,7 @@
         android:layout_height="30dp" />
 
     <Button
-        android:id="@+id/eventAddButton"
+        android:id="@+id/addEventButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Event" />

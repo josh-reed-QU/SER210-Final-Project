@@ -1,5 +1,7 @@
 package edu.quinnipiac.ser210.remindersapp;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +13,18 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddEventFragment extends Fragment implements View.OnClickListener {
+    private SQLiteDatabase db;
+    private DataBaseHandler dbHandler;
+    private Cursor cursor;
+
+    private EditText eventNameEdt, eventDateEdt, eventTimeEdt, eventDescriptionEdt;
+    private Button addEventBtn;
+
     // NavController object to allow navigation between fragments
     NavController navController = null;
 
@@ -32,6 +44,39 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         //TODO: add a button to splash screen, implement onClickListener Here, will always have the all category
+
+        eventNameEdt = view.findViewById(R.id.eventNameInput);
+        eventDateEdt = view.findViewById(R.id.eventDateInput);
+        eventTimeEdt = view.findViewById(R.id.eventTimeInput);
+        eventDescriptionEdt = view.findViewById(R.id.eventDescriptionInput);
+        addEventBtn = view.findViewById(R.id.addEventButton);
+
+        dbHandler = new DataBaseHandler(view.getContext());
+
+        addEventBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String eventCategory = "ALL";
+                String eventName = eventNameEdt.getText().toString();
+                String eventDate = eventDateEdt.getText().toString();
+                String eventTime = eventTimeEdt.getText().toString();
+                String eventDescription = eventDescriptionEdt.getText().toString();
+
+                if (eventName.isEmpty() && eventDate.isEmpty() && eventTime.isEmpty()) {
+                    Toast.makeText(view.getContext(), "Please enter name, date and time..", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                dbHandler.addNewEvent(eventCategory, eventName, eventDate, eventTime,  eventDescription);
+
+                Toast.makeText(view.getContext(), "Event has been added.", Toast.LENGTH_SHORT).show();
+                eventNameEdt.setText("");
+                eventDateEdt.setText("");
+                eventTimeEdt.setText("");
+                eventDescriptionEdt.setText("");
+            }
+        });
+
     }
 
     @Override
