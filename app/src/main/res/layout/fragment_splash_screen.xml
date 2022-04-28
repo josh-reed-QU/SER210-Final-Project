@@ -16,7 +16,7 @@
         android:text="@string/appTitle"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:textSize="48dp" />
+        android:textSize="48sp" />
 
     <Space
         android:layout_width="match_parent"
@@ -28,7 +28,8 @@
         android:layout_height="280dp"
         android:layout_gravity="center"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/images" />
+        app:srcCompat="@drawable/images"
+        android:contentDescription="TODO" />
 
     <Space
         android:layout_width="match_parent"
@@ -40,6 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/splashScreenButtonText"
-        android:textSize="36dp"/>
+        android:textSize="36sp"/>
 
 </LinearLayout>
