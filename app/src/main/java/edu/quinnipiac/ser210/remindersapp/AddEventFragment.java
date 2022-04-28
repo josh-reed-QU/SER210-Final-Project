@@ -6,11 +6,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -43,7 +47,10 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        //TODO: add a button to splash screen, implement onClickListener Here, will always have the all category
+        // sets toolbar for fragment
+        AppCompatActivity context = (AppCompatActivity)getContext();
+        context.setSupportActionBar(getView().findViewById(R.id.toolbarAddEventScreen));
+        setHasOptionsMenu(true);
 
         eventNameEdt = view.findViewById(R.id.eventNameInput);
         eventDateEdt = view.findViewById(R.id.eventDateInput);
@@ -77,6 +84,23 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.main_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch(id) {
+            case R.id.help:
+                navController.navigate(R.id.action_addEventFragment_to_helpScreenFragment);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

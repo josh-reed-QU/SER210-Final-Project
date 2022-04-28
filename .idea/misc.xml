@@ -11,6 +11,8 @@
         <entry key="app/src/main/res/layout/fragment_home_screen.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/test_recycle_list.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/menu/detail_screen_menu.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

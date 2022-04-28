@@ -6,8 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".SplashScreenFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAddEventScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
     <Space
         android:layout_width="match_parent"
@@ -17,6 +24,7 @@
         android:id="@+id/eventNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:text="Event Name:"
         android:textSize="28dp" />
 
@@ -24,6 +32,7 @@
         android:id="@+id/eventNameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:hint="Enter Event Name"
         android:textSize="20dp" />
 
@@ -35,6 +44,7 @@
         android:id="@+id/eventDateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:text="Event Date:"
         android:textSize="20dp" />
 
@@ -42,6 +52,7 @@
         android:id="@+id/eventDateInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:hint="Enter Event Date"
         android:textSize="20dp" />
 
@@ -53,6 +64,7 @@
         android:id="@+id/eventTimeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:text="Event Time:"
         android:textSize="20dp" />
 
@@ -60,6 +72,7 @@
         android:id="@+id/eventTimeInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:hint="Enter Event Time"
         android:textSize="20dp" />
 
@@ -71,6 +84,7 @@
         android:id="@+id/eventDescriptionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:text="Event Description:"
         android:textSize="20dp" />
 
@@ -79,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter Event Description"
+        android:layout_marginLeft="16dp"
         android:textSize="20dp" />
 
     <Space

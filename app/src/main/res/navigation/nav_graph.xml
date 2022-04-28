@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_addEventFragment"
             app:destination="@id/addEventFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_helpScreenFragment"
+            app:destination="@id/helpScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
@@ -40,12 +43,19 @@
         <action
             android:id="@+id/action_eventListFragment_to_addEventFragment"
             app:destination="@id/addEventFragment" />
+        <action
+            android:id="@+id/action_eventListFragment_to_helpScreenFragment"
+            app:destination="@id/helpScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
         android:name="edu.quinnipiac.ser210.remindersapp.EventDetailsFragment"
         android:label="fragment_event_details"
-        tools:layout="@layout/fragment_event_details" />
+        tools:layout="@layout/fragment_event_details" >
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_helpScreenFragment"
+            app:destination="@id/helpScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/helpScreenFragment"
         android:name="edu.quinnipiac.ser210.remindersapp.HelpScreenFragment"
@@ -55,5 +65,9 @@
         android:id="@+id/addEventFragment"
         android:name="edu.quinnipiac.ser210.remindersapp.AddEventFragment"
         android:label="fragment_add_event"
-        tools:layout="@layout/fragment_add_event" />
+        tools:layout="@layout/fragment_add_event" >
+        <action
+            android:id="@+id/action_addEventFragment_to_helpScreenFragment"
+            app:destination="@id/helpScreenFragment" />
+    </fragment>
 </navigation>
