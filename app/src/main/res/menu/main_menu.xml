@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_help_foreground"
         app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/settings"
+    android:title="settings"
+    android:icon="@drawable/ic_settings_foreground"
+    app:showAsAction="ifRoom" />
+
 </menu>

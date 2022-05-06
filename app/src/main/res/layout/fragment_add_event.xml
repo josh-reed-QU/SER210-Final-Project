@@ -22,10 +22,9 @@
 
     <TextView
         android:id="@+id/eventNameLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:text="Event Name:"
+        android:text="  Event Name:"
         android:textSize="28dp" />
 
     <EditText
