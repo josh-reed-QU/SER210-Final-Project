@@ -77,7 +77,7 @@ public class EventCVAdapter extends RecyclerView.Adapter<EventCVAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // initializing our text views
-            eventNameCV = itemView.findViewById(R.id.idCVEventName);
+            eventNameCV = itemView.findViewById(R.id.idCVCategoryName);
             eventDescCV = itemView.findViewById(R.id.idCVEventDescription);
             eventDateCV = itemView.findViewById(R.id.idCVEventDate);
             eventTimeCV = itemView.findViewById(R.id.idCVEventTime);

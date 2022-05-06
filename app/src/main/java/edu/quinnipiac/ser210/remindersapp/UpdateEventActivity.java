@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class UpdateEventActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class UpdateEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_update_event);
 
-        eventNameEdt = findViewById(R.id.categoryNameInput);
+        eventNameEdt = findViewById(R.id.eventNameInput);
         eventDateEdt = findViewById(R.id.eventDateInput);
         eventTimeEdt = findViewById(R.id.eventTimeInput);
         eventDescriptionEdt = findViewById(R.id.eventDescriptionInput);
@@ -59,8 +61,12 @@ public class UpdateEventActivity extends AppCompatActivity {
                 Toast.makeText(UpdateEventActivity.this, "Event Updated", Toast.LENGTH_SHORT).show();
 
                 // launching our main activity.
-                Intent i = new Intent(UpdateEventActivity.this, MainActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(UpdateEventActivity.this, MainActivity.class);
+                //startActivity(i);
+
+                NavController navController = Navigation.findNavController(v);
+
+                navController.navigate(R.id.action_homeScreenFragment_to_eventListFragment);
             }
         });
 
@@ -71,8 +77,8 @@ public class UpdateEventActivity extends AppCompatActivity {
                 // calling a method to delete our course.
                 dbHandler.deleteEvent(eventName);
                 Toast.makeText(UpdateEventActivity.this, "Event Deleted", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(UpdateEventActivity.this, MainActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(UpdateEventActivity.this, MainActivity.class);
+                //startActivity(i);
             }
         });
 

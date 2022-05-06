@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/activity_main.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/category_rv_item.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/event_rv_item.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_add_category.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_add_event.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_event_details.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_event_list.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_help_screen.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_home_screen.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_splash_screen.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/SER210-Final-Project-master2/app/src/main/res/layout/fragment_update_event.xml" value="0.2056159420289855" />
         <entry key="..\:/Users/Andrew/Documents/SER210-Final-Project-master2/app/src/main/res/layout/activity_main.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Andrew/Documents/SER210-Final-Project-master2/app/src/main/res/layout/event_rv_item.xml" value="0.2151268115942029" />
         <entry key="..\:/Users/Andrew/Documents/SER210-Final-Project-master2/app/src/main/res/layout/fragment_add_category.xml" value="0.2056159420289855" />

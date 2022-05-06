@@ -26,7 +26,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
     private DataBaseHandler dbHandler;
     private Cursor cursor;
 
-    private EditText eventNameEdt, eventDateEdt, eventTimeEdt, eventDescriptionEdt;
+    private EditText eventNameEdt, eventDateEdt, eventTimeEdt, eventDescriptionEdt, eventCategoryEdt;
     private Button addEventBtn;
 
     // NavController object to allow navigation between fragments
@@ -52,7 +52,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
         context.setSupportActionBar(getView().findViewById(R.id.toolbarAddEventScreen));
         setHasOptionsMenu(true);
 
-        eventNameEdt = view.findViewById(R.id.categoryNameInput);
+        eventCategoryEdt = view.findViewById(R.id.categoryNameInput2);
+        eventNameEdt = view.findViewById(R.id.eventNameInput);
         eventDateEdt = view.findViewById(R.id.eventDateInput);
         eventTimeEdt = view.findViewById(R.id.eventTimeInput);
         eventDescriptionEdt = view.findViewById(R.id.eventDescriptionInput);
@@ -60,10 +61,12 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
 
         dbHandler = new DataBaseHandler(view.getContext());
 
+        eventCategoryEdt.setText(getArguments().getString("category"));
+
         addEventBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String eventCategory = "ALL";
+                String eventCategory = eventCategoryEdt.getText().toString();
                 String eventName = eventNameEdt.getText().toString();
                 String eventDate = eventDateEdt.getText().toString();
                 String eventTime = eventTimeEdt.getText().toString();

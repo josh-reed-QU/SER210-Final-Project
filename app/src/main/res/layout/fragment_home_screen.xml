@@ -16,24 +16,19 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <Button
-        android:id="@+id/allEventsButton"
-        android:layout_width="160dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:text="All" />
-
-    <Space
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idCVCategories"
         android:layout_width="match_parent"
-        android:layout_height="380dp" />
+        android:layout_height="528dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/homeScreenFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_add_foreground"
-        android:layout_margin="16dp" />
+        android:layout_gravity="bottom|right|end"
+        android:clickable="true"
+        android:src="@drawable/ic_add_foreground" />
 
 </LinearLayout>

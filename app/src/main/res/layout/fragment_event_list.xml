@@ -17,7 +17,7 @@
         android:theme="?attr/actionBarTheme" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idCVEvents"
+        android:id="@+id/idCVCategories"
         android:layout_width="match_parent"
         android:layout_height="533dp">
 

@@ -16,12 +16,28 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
+    <TextView
+        android:id="@+id/categoryNameLabel2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Category Name:"
+        android:textSize="28dp" />
+
+    <EditText
+        android:id="@+id/categoryNameInput2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="Enter Category Name"
+        android:textSize="20dp" />
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="25dp" />
 
     <TextView
-        android:id="@+id/categoryNameLabel"
+        android:id="@+id/eventNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -29,7 +45,7 @@
         android:textSize="28dp" />
 
     <EditText
-        android:id="@+id/categoryNameInput"
+        android:id="@+id/eventNameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -38,7 +54,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="23dp" />
 
     <TextView
         android:id="@+id/eventDateLabel"
@@ -58,7 +74,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="22dp" />
 
     <TextView
         android:id="@+id/eventTimeLabel"
@@ -78,7 +94,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="17dp" />
 
     <TextView
         android:id="@+id/eventDescriptionLabel"
@@ -98,7 +114,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="22dp" />
 
     <Button
         android:id="@+id/addCategoryButton"

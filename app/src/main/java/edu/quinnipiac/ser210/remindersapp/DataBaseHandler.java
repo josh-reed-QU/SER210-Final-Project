@@ -53,6 +53,25 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         }
         return tableString;
     }
+
+    public void addNewCategory(String eventCategory) {
+        // TODO: Link this to add event button, make sure the category is correct and set by the system, not user
+        // Parameters: Category, Name, Date, Time, Description
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(CATEGORY_COL, eventCategory);
+        values.put(NAME_COL, "");
+        values.put(DATE_COL, "");
+        values.put(TIME_COL, "");
+        values.put(DESCRIPTION_COL, "");
+        /*String currentDate = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(new Date());
+        values.put(DATE_COL, currentDate);
+        values.put(TIME_COL, getRemainingTime());*/
+        db.insert(TABLE_NAME, null, values);
+        db.close();
+    }
+
+
     public void addNewEvent(String eventCategory, String eventName, String eventDate, String eventTime, String eventDescription) {
         // TODO: Link this to add event button, make sure the category is correct and set by the system, not user
         // Parameters: Category, Name, Date, Time, Description
@@ -94,19 +113,47 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<EventModal> readEvents() {
+    public ArrayList<CategoryModal> readCategories() {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursorEvents = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor cursorCategories = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + NAME_COL + " =? ", new String[] {""});
 
         // on below line we are creating a new array list.
-        ArrayList<EventModal> courseModalArrayList = new ArrayList<>();
+        ArrayList<CategoryModal> categoryModalArrayList = new ArrayList<>();
+
+        // moving our cursor to first position.
+        if (cursorCategories.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+                categoryModalArrayList.add(new CategoryModal(cursorCategories.getString(1)));
+            } while (cursorCategories.moveToNext());
+            // moving our cursor to next.
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursorCategories.close();
+        return categoryModalArrayList;
+    }
+
+    public ArrayList<EventModal> readEvents(String Category) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursorEvents;
+
+        if (Category == "") {
+            cursorEvents = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        } else {
+            cursorEvents = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + CATEGORY_COL + " =? ", new String[] {Category});
+        }
+
+        // on below line we are creating a new array list.
+        ArrayList<EventModal> eventModalArrayList = new ArrayList<>();
 
         // moving our cursor to first position.
         if (cursorEvents.moveToFirst()) {
             do {
                 // on below line we are adding the data from cursor to our array list.
-                courseModalArrayList.add(new EventModal(cursorEvents.getString(1),
+                eventModalArrayList.add(new EventModal(cursorEvents.getString(1),
                         cursorEvents.getString(2),
                         cursorEvents.getString(3),
                         cursorEvents.getString(4),
@@ -117,7 +164,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         // at last closing our cursor
         // and returning our array list.
         cursorEvents.close();
-        return courseModalArrayList;
+        return eventModalArrayList;
     }
 
     @Override
