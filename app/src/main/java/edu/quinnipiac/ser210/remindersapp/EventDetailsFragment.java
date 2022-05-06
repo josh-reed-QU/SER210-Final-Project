@@ -55,6 +55,9 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
             case R.id.help:
                 navController.navigate(R.id.action_eventDetailsFragment_to_helpScreenFragment);
                 break;
+            case R.id.settings:
+                navController.navigate(R.id.action_addEventFragment_to_settingsFragment);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

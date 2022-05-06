@@ -54,6 +54,9 @@ public class HelpScreenFragment extends Fragment {
         switch(id) {
             case R.id.help:
                 break;
+            case R.id.settings:
+                navController.navigate(R.id.action_addEventFragment_to_settingsFragment);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

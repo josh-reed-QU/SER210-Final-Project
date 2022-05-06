@@ -54,7 +54,7 @@ public class EventListFragment extends Fragment implements View.OnClickListener 
         navController = Navigation.findNavController(view);
         // sets toolbar for fragment
         AppCompatActivity context = (AppCompatActivity)getContext();
-        //context.setSupportActionBar(getView().findViewById(R.id.toolbarEventListScreen));
+        context.setSupportActionBar(getView().findViewById(R.id.toolbarEventListScreen));
         setHasOptionsMenu(true);
 
         eventArrayList = new ArrayList<>();
@@ -96,6 +96,9 @@ public class EventListFragment extends Fragment implements View.OnClickListener 
         switch(id) {
             case R.id.help:
                 navController.navigate(R.id.action_eventListFragment_to_helpScreenFragment);
+                break;
+            case R.id.settings:
+                navController.navigate(R.id.action_addEventFragment_to_settingsFragment);
                 break;
         }
         return super.onOptionsItemSelected(item);

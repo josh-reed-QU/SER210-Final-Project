@@ -58,6 +58,9 @@ public class SplashScreenFragment extends Fragment implements View.OnClickListen
             case R.id.help:
                 navController.navigate(R.id.action_splashScreen_to_helpScreenFragment);
                 break;
+            case R.id.settings:
+                navController.navigate(R.id.action_addEventFragment_to_settingsFragment);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
