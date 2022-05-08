@@ -140,7 +140,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
         Cursor cursorEvents;
 
-        if (Category == "") {
+        System.out.println("Category : " + Category);
+        if (Category.equals("\"\"") == true || Category.equals("ALL") == true) {
             cursorEvents = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         } else {
             cursorEvents = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + CATEGORY_COL + " =? ", new String[] {Category});
@@ -153,11 +154,14 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         if (cursorEvents.moveToFirst()) {
             do {
                 // on below line we are adding the data from cursor to our array list.
-                eventModalArrayList.add(new EventModal(cursorEvents.getString(1),
-                        cursorEvents.getString(2),
-                        cursorEvents.getString(3),
-                        cursorEvents.getString(4),
-                        cursorEvents.getString(5)));
+                if (cursorEvents.getString(2).isEmpty() == false) {
+                    eventModalArrayList.add(new EventModal(cursorEvents.getString(1),
+                            cursorEvents.getString(2),
+                            cursorEvents.getString(3),
+                            cursorEvents.getString(4),
+                            cursorEvents.getString(5)));
+                }
+
             } while (cursorEvents.moveToNext());
             // moving our cursor to next.
         }

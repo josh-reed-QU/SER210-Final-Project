@@ -32,10 +32,6 @@
         android:hint="Enter Category Name"
         android:textSize="20dp" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp" />
-
     <TextView
         android:id="@+id/eventNameLabel"
         android:layout_width="wrap_content"
@@ -52,10 +48,6 @@
         android:hint="Enter Event Name"
         android:textSize="20dp" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="23dp" />
-
     <TextView
         android:id="@+id/eventDateLabel"
         android:layout_width="wrap_content"
@@ -64,17 +56,12 @@
         android:text="Event Date:"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/eventDateInput"
+    <DatePicker
+        android:id="@+id/datePicker1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:hint="Enter Event Date"
-        android:textSize="20dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="22dp" />
+        android:layout_height="129dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
 
     <TextView
         android:id="@+id/eventTimeLabel"
@@ -84,17 +71,11 @@
         android:text="Event Time:"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/eventTimeInput"
+    <TimePicker
+        android:id="@+id/timerPicker1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:hint="Enter Event Time"
-        android:textSize="20dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="17dp" />
+        android:layout_height="130dp"
+        android:timePickerMode="spinner" />
 
     <TextView
         android:id="@+id/eventDescriptionLabel"
@@ -111,10 +92,6 @@
         android:hint="Enter Event Description"
         android:layout_marginLeft="16dp"
         android:textSize="20dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="22dp" />
 
     <Button
         android:id="@+id/addCategoryButton"

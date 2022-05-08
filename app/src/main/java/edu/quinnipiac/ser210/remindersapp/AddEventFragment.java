@@ -2,11 +2,13 @@ package edu.quinnipiac.ser210.remindersapp;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,7 +20,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class AddEventFragment extends Fragment implements View.OnClickListener {
@@ -27,7 +31,10 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
     private Cursor cursor;
 
     private EditText eventNameEdt, eventDateEdt, eventTimeEdt, eventDescriptionEdt, eventCategoryEdt;
-    private Button addEventBtn;
+    private Button addEventBtn, eventTimePicker;
+
+    private TimePicker timerPicker;
+    private DatePicker datePicker;
 
     // NavController object to allow navigation between fragments
     NavController navController = null;
@@ -59,6 +66,11 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
         eventDescriptionEdt = view.findViewById(R.id.eventDescriptionInput);
         addEventBtn = view.findViewById(R.id.addCategoryButton);
 
+        timerPicker = (TimePicker) view.findViewById(R.id.timerPicker1);
+        timerPicker.setIs24HourView(false);
+
+        datePicker = (DatePicker) view.findViewById(R.id.datePicker1);
+
         dbHandler = new DataBaseHandler(view.getContext());
 
         eventCategoryEdt.setText(getArguments().getString("category"));
@@ -68,9 +80,31 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String eventCategory = eventCategoryEdt.getText().toString();
                 String eventName = eventNameEdt.getText().toString();
-                String eventDate = eventDateEdt.getText().toString();
-                String eventTime = eventTimeEdt.getText().toString();
                 String eventDescription = eventDescriptionEdt.getText().toString();
+
+                int hour, minute;
+                String am_pm;
+                if (Build.VERSION.SDK_INT >= 23 ){
+                    hour = timerPicker.getHour();
+                    minute = timerPicker.getMinute();
+                }
+                else{
+                    hour = timerPicker.getCurrentHour();
+                    minute = timerPicker.getCurrentMinute();
+                }
+                if(hour > 12) {
+                    am_pm = "PM";
+                    hour = hour - 12;
+                }
+                else
+                {
+                    am_pm="AM";
+                }
+
+
+                String eventTime = (hour +":"+ minute+" "+am_pm).toString();
+
+                String eventDate = (datePicker.getDayOfMonth()+"/"+ (datePicker.getMonth() + 1)+"/"+datePicker.getYear()).toString();
 
                 if (eventName.isEmpty() && eventDate.isEmpty() && eventTime.isEmpty()) {
                     Toast.makeText(view.getContext(), "Please enter name, date and time..", Toast.LENGTH_SHORT).show();
@@ -81,8 +115,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener {
 
                 Toast.makeText(view.getContext(), "Event has been added.", Toast.LENGTH_SHORT).show();
                 eventNameEdt.setText("");
-                eventDateEdt.setText("");
-                eventTimeEdt.setText("");
                 eventDescriptionEdt.setText("");
             }
         });
