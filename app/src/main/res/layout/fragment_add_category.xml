@@ -42,7 +42,7 @@
 
     <Button
         android:id="@+id/addCategoryButton"
-        android:layout_width="220dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Add Category"
