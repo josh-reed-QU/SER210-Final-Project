@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Use the '+' button in the lower right of your screen to add an event."
+        android:text="Use the '+' button in the lower right of your screen to add a category on the home screen."
         android:textSize="22dp" />
 
     <Space
@@ -59,6 +59,17 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="View your events by choosing a category on the home screen, and choosing an event from the list."
+        android:textSize="22dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Use the '+' button in the lower right of your screen in a category to add an event to this list."
         android:textSize="22dp" />
 
 </LinearLayout>

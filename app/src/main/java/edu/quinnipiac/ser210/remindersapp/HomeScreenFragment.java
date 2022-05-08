@@ -1,5 +1,7 @@
 package edu.quinnipiac.ser210.remindersapp;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,8 +20,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 public class HomeScreenFragment extends Fragment implements View.OnClickListener{
     NavController navController = null;
+
+    private SQLiteDatabase db;
+    private DataBaseHandler dbHandler;
+    private Cursor cursor;
+
+    private ArrayList<CategoryModal> categoryArrayList;
+    private CategoryCVAdapter categoryCVAdapter;
+    private RecyclerView categoriesCV;
+
 
     public HomeScreenFragment() {
         // Required empty public constructor
@@ -38,8 +53,21 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         AppCompatActivity context = (AppCompatActivity)getContext();
         context.setSupportActionBar(getView().findViewById(R.id.toolbarHomeScreen));
         setHasOptionsMenu(true);
+
+        categoryArrayList = new ArrayList<>();
+        dbHandler = new DataBaseHandler(view.getContext());
+
+        categoryArrayList = dbHandler.readCategories();
+
+        categoryCVAdapter = new CategoryCVAdapter(categoryArrayList, view.getContext());
+        categoriesCV = view.findViewById(R.id.idCVCategories);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
+        categoriesCV.setLayoutManager(linearLayoutManager);
+
+        categoriesCV.setAdapter(categoryCVAdapter);
+
         //TODO: get buttons from screen, implement onClickListener here
-        view.findViewById(R.id.allEventsButton).setOnClickListener(this);
         view.findViewById(R.id.homeScreenFAB).setOnClickListener(this);
     }
 
@@ -56,6 +84,9 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.help:
                 navController.navigate(R.id.action_homeScreenFragment_to_helpScreenFragment);
                 break;
+            case R.id.settings:
+                navController.navigate(R.id.action_addEventFragment_to_settingsFragment);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -64,12 +95,8 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
     public void onClick(View view) {
         //TODO: implement for the category buttons
         switch(view.getId()) {
-            case R.id.allEventsButton:
-                //TODO: only goes to screen now, does not change events displayed
-                navController.navigate(R.id.action_homeScreenFragment_to_eventListFragment);
-                break;
             case R.id.homeScreenFAB:
-                navController.navigate(R.id.action_homeScreenFragment_to_addEventFragment);
+                navController.navigate(R.id.action_homeScreenFragment_to_addCategoryFragment);
                 break;
         }
     }

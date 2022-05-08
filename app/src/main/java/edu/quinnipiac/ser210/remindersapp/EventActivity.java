@@ -1,17 +1,15 @@
 package edu.quinnipiac.ser210.remindersapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class EventActivity extends AppCompatActivity {
@@ -20,7 +18,7 @@ public class EventActivity extends AppCompatActivity {
     private DataBaseHandler dbHandler;
     private Cursor cursor;
 
-    private EditText eventNameEdt, eventDateEdt, eventTimeEdt, eventDescriptionEdt;
+    private EditText eventNameEdt, eventDateEdt, eventTimeEdt, eventDescriptionEdt, eventCategoryEdt;
     private Button addEventBtn;
 
     @Override
@@ -28,19 +26,19 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_add_event);
 
+        eventCategoryEdt = findViewById(R.id.categoryNameInput2);
         eventNameEdt = findViewById(R.id.eventNameInput);
         eventDateEdt = findViewById(R.id.eventDateInput);
         eventTimeEdt = findViewById(R.id.eventTimeInput);
         eventDescriptionEdt = findViewById(R.id.eventDescriptionInput);
-        addEventBtn = findViewById(R.id.addEventButton);
+        addEventBtn = findViewById(R.id.addCategoryButton);
 
         dbHandler = new DataBaseHandler(EventActivity.this);
 
         addEventBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String eventCategory = "ALL";
+                String eventCategory = eventCategoryEdt.getText().toString();
                 String eventName = eventNameEdt.getText().toString();
                 String eventDate = eventDateEdt.getText().toString();
                 String eventTime = eventTimeEdt.getText().toString();
@@ -54,10 +52,15 @@ public class EventActivity extends AppCompatActivity {
                 dbHandler.addNewEvent(eventCategory, eventName, eventDate, eventTime,  eventDescription);
 
                 Toast.makeText(EventActivity.this, "Event has been added.", Toast.LENGTH_SHORT).show();
+                eventCategoryEdt.setText("");
                 eventNameEdt.setText("");
                 eventDateEdt.setText("");
                 eventTimeEdt.setText("");
                 eventDescriptionEdt.setText("");
+
+                NavController navController = Navigation.findNavController(v);
+
+                navController.navigate(R.id.action_homeScreenFragment_to_eventListFragment);
             }
         });
 

@@ -2,8 +2,6 @@ package edu.quinnipiac.ser210.remindersapp;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,21 +19,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EventListFragment extends Fragment implements View.OnClickListener {
 
     private SQLiteDatabase db;
     private DataBaseHandler dbHandler;
     private Cursor cursor;
+
+    private ArrayList<EventModal> eventArrayList;
+    private EventCVAdapter eventCVAdapter;
+    private RecyclerView eventsCV;
+
+    private String currentCategory;
 
     // NavController object to allow the fragment to switch screens
     NavController navController = null;
@@ -58,23 +57,29 @@ public class EventListFragment extends Fragment implements View.OnClickListener 
         context.setSupportActionBar(getView().findViewById(R.id.toolbarEventListScreen));
         setHasOptionsMenu(true);
 
-        ListView listEvents = (ListView) view.findViewById(R.id.list_events);
-
+        eventArrayList = new ArrayList<>();
         dbHandler = new DataBaseHandler(view.getContext());
 
-        System.out.println(dbHandler.readEvents());
+        System.out.println("bundle Category");
+
+        currentCategory = getArguments().getString("category");
+
+        eventArrayList = dbHandler.readEvents(currentCategory);
+
+        eventCVAdapter = new EventCVAdapter(eventArrayList, view.getContext());
+        eventsCV = view.findViewById(R.id.idCVCategories);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
+        eventsCV.setLayoutManager(linearLayoutManager);
+
+        eventsCV.setAdapter(eventCVAdapter);
+
+        System.out.println("read categories");
+        System.out.println(dbHandler.readCategories());
+
+        System.out.println("read events");
+        System.out.println(dbHandler.readEvents(""));
         System.out.println(dbHandler.getTableAsString("reminders"));
-
-        List<String> your_array_list = new ArrayList<String>();
-        your_array_list.add("foo");
-        your_array_list.add("bar");
-
-        ArrayAdapter<EventModal> arrayAdapter = new ArrayAdapter<EventModal>(
-                view.getContext(),
-                android.R.layout.simple_list_item_1,
-                dbHandler.readEvents() );
-
-        listEvents.setAdapter(arrayAdapter);
 
         view.findViewById(R.id.eventListFAB).setOnClickListener(this);
     }
@@ -92,6 +97,9 @@ public class EventListFragment extends Fragment implements View.OnClickListener 
             case R.id.help:
                 navController.navigate(R.id.action_eventListFragment_to_helpScreenFragment);
                 break;
+            case R.id.settings:
+                navController.navigate(R.id.action_addEventFragment_to_settingsFragment);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -101,7 +109,11 @@ public class EventListFragment extends Fragment implements View.OnClickListener 
         //TODO: navigate to next screen using navController
         switch(view.getId()) {
             case R.id.eventListFAB:
-                navController.navigate(R.id.action_eventListFragment_to_addEventFragment);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("category", currentCategory);
+
+                navController.navigate(R.id.action_eventListFragment_to_addEventFragment, bundle);
                 break;
         }
     }

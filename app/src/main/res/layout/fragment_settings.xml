@@ -4,31 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventListFragment">
-
-    <!--recycler view for displaying our courses-->
+    tools:context=".SettingsFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarEventListScreen"
+        android:id="@+id/toolbarSettingsScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idCVCategories"
+    <TextView
+        android:id="@+id/splashScreenText"
         android:layout_width="match_parent"
-        android:layout_height="533dp">
+        android:layout_height="wrap_content"
+        android:text="Theme:"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:textSize="30sp" />
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/eventListFAB"
+    <Spinner
+        android:id="@+id/themeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:src="@drawable/ic_add_foreground"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_gravity="center_horizontal"
+        android:entries="@array/theme_array" />
 
 </LinearLayout>

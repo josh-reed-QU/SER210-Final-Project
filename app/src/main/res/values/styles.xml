@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.LightTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="LightTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/grey</item>
         <item name="colorPrimaryVariant">@color/greyDark</item>
@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.BlueTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="BlueTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/blueDark</item>
@@ -28,7 +28,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.RedTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="RedTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/redDark</item>
@@ -42,7 +42,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.GreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="GreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryVariant">@color/greenDark</item>
@@ -52,8 +52,7 @@
         <item name="colorSecondaryVariant">@color/green</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/greenDark</item>
         <!-- Customize your theme here. -->
     </style>
-
 </resources>

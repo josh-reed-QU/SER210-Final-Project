@@ -16,21 +16,9 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <TextView
-        android:id="@+id/categoryNameLabel2"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:text="Category Name:"
-        android:textSize="28dp" />
-
-    <EditText
-        android:id="@+id/categoryNameInput2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:hint="Enter Category Name"
-        android:textSize="20dp" />
+        android:layout_height="40dp" />
 
     <TextView
         android:id="@+id/eventNameLabel"
@@ -48,6 +36,10 @@
         android:hint="Enter Event Name"
         android:textSize="20dp" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
     <TextView
         android:id="@+id/eventDateLabel"
         android:layout_width="wrap_content"
@@ -56,12 +48,17 @@
         android:text="Event Date:"
         android:textSize="20dp" />
 
-    <DatePicker
-        android:id="@+id/datePicker1"
+    <EditText
+        android:id="@+id/eventDateInput"
         android:layout_width="wrap_content"
-        android:layout_height="129dp"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="Enter Event Date"
+        android:textSize="20dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
     <TextView
         android:id="@+id/eventTimeLabel"
@@ -71,11 +68,17 @@
         android:text="Event Time:"
         android:textSize="20dp" />
 
-    <TimePicker
-        android:id="@+id/timerPicker1"
+    <EditText
+        android:id="@+id/eventTimeInput"
         android:layout_width="wrap_content"
-        android:layout_height="130dp"
-        android:timePickerMode="spinner" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:hint="Enter Event Time"
+        android:textSize="20dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="23dp" />
 
     <TextView
         android:id="@+id/eventDescriptionLabel"
@@ -93,12 +96,26 @@
         android:layout_marginLeft="16dp"
         android:textSize="20dp" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="28dp" />
+
     <Button
-        android:id="@+id/addCategoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Add"
-        android:textSize="36dp"/>
+        android:id="@+id/updateEventButton"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_margin="10dp"
+        android:text="Update Event"
+        android:textAllCaps="false"
+        android:textSize="34sp" />
+
+    <Button
+        android:id="@+id/deleteEventButton"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_margin="10dp"
+        android:text="Delete Event"
+        android:textAllCaps="false"
+        android:textSize="34sp" />
 
 </LinearLayout>

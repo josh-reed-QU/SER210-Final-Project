@@ -60,12 +60,12 @@ public class EventModal {
     }
 
     // constructor
-    public EventModal(String eventCategory,String eventName, String eventDate, String eventTime, String eventDescription) {
+    public EventModal(String eventCategory,String eventName, String eventDescription, String eventDate, String eventTime) {
         this.eventCategory = eventCategory;
         this.eventName = eventName;
+        this.eventDescription = eventDescription;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
-        this.eventDescription = eventDescription;
     }
 
 }
